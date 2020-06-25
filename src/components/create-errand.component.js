@@ -77,7 +77,7 @@ export default class CreateErrand extends Component {
     axios.post('http://localhost:5001/errands/add', errands)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = '/errands';
   }
 
   render() {
