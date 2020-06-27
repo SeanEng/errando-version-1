@@ -27,3 +27,6 @@ app.use('/users', usersRouter);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
