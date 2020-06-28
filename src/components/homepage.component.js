@@ -4,14 +4,15 @@ const Homepage = () => (
   
   <body style= {{
     margin: '0px',
-    padding: '20%',
-    height: '100%',
+    padding: '25%',
+    height: 'fill',
+    width: 'fill',
     textAlign: 'center',
     backgroundColor: '#2f496e',
     color: 'white'
   }}>
     <h1 style= {{
-      fontSize: '10rem'
+      fontSize: '5rem'
       }}>
         errando
       </h1>
