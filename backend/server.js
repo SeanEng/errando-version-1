@@ -10,7 +10,7 @@ const port = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
+const uri = process.env.MONGODB_URI || 'mongodb://errando2020:orbital2020@ds113749.mlab.com:13749/heroku_cqkqpp8h' //'mongodb+srv://Sean:9F!whuyvC6jZRdZ@cluster0-46pry.mongodb.net/test?retryWrites=true&w=majority';//process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
@@ -23,6 +23,11 @@ const usersRouter = require('./routes/users');
 
 app.use('/errands', errandsRouter);
 app.use('/users', usersRouter);
+
+// test code to deploy to heroku
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('backend/build'))
+}
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
